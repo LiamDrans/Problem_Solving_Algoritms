@@ -82,3 +82,31 @@ def test_json_dumps_returns_correct_json_with_tuple():
 
 def test_json_dumps_returns_string():
     assert isinstance(json_dumps({"one": {"two": {"three": 3}}}), str)
+
+def test_json_dumps_on_list_returns_correct_result():
+    test = [1, 2, 3, 4]
+    test2 = [1, 2, [True, "True"]]
+    test3 = [1, [2, True], 3 , [4 , False, ["inner_list"]], "five"]
+    test4 = [1, 2, {3:4, 5:6, True:False}]
+    test5 = [{True: [True, "Rekieta", {False: "False"}, 1], 2:"Two"}, {"final_dict":"wow"}]
+    test_list = [test, test2, test3, test4, test5]
+    for test in test_list:
+        assert json_dumps(test) == json.dumps(test)
+
+def test_json_dumps_on_tuple_returns_correct_result():
+    test = (1, 2, 3, 4)
+    test2 = (1, 2, (True, "True"))
+    test3 = (1, [2, True], 3 , [4 , False, ["inner_list"]], "five")
+    test4 = (1, 2, {3:4, 5:6, True:False})
+    test5 = ({True: [True, "Rekieta", {False: "False"}, 1], 2:"Two"}, {"final_dict":"wow"})
+    test_list = [test, test2, test3, test4, test5]
+    for test in test_list:
+        assert json_dumps(test) == json.dumps(test)
+
+def test_json_dumps_on_single_element_returns_correct_result():
+    test = True
+    test2 = 12
+    test3 = "String"
+    test_list = [test, test2, test3]
+    for test in test_list:
+        assert json_dumps(test) == json.dumps(test)
