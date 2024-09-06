@@ -1,4 +1,4 @@
-# Problem_Solving_Algoritms
+# Problem Solving Algoritms
 
 # Description
 
