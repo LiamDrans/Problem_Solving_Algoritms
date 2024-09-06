@@ -1,7 +1,7 @@
 """Program to perform the function of json.dumps on dictionary objs featuring recursive logic"""
 
 
-def json_dumps(obj, separators=(',',':')):
+def json_dumps(obj, separators=(', ',': ')):
     """Takes the dictionary to be converted to json format"""
 
     json_string = ""
@@ -57,7 +57,21 @@ def json_dumps(obj, separators=(',',':')):
         json_obj = value_to_json(obj)
         json_string += str(json_obj)
 
-    return json_string
+    """WIP - to implement indent functionality"""
+    # if indent > 0:
+    #     char_position = 0
+    #     indented_json = ""
+    #     for char in json_string:
+    #         if char in ("[", "{", ","):
+    #             indented_json += char + '\n'
+    #             char_position += 1
+    #         else:
+    #             indented_json += char
+    #             char_position += 1
+
+    #     return indented_json
+    # else:
+    #     return json_string
 
 
 def key_to_json(key):
@@ -81,13 +95,13 @@ def json_dict(key, value, counter, length, json_string, separators):
     """Contains the string logic for converting a dictionary obj into json format"""
 
     if json_string == "" and length == 1:
-        json_string += f'\u007b"{key}"{separators[1]} {value}\u007d'
+        json_string += f'\u007b"{key}"{separators[1]}{value}\u007d'
     elif counter == 1:
-        json_string += f'\u007b"{key}"{separators[1]} {value}{separators[0]} '
+        json_string += f'\u007b"{key}"{separators[1]}{value}{separators[0]}'
     elif length == counter:
-        json_string += f'"{key}"{separators[1]} {value}\u007d'
+        json_string += f'"{key}"{separators[1]}{value}\u007d'
     else:
-        json_string += f'"{key}"{separators[1]} {value}{separators[0]} '
+        json_string += f'"{key}"{separators[1]}{value}{separators[0]}'
 
     return json_string
 
@@ -97,11 +111,11 @@ def json_list(item, counter, length, json_string, separators):
     if length == 1:
         json_string += f"[{item}]"
     elif length > 1 and counter == 1:
-        json_string += f"[{item}{separators[0]} "
+        json_string += f"[{item}{separators[0]}"
     elif counter == length:
         json_string += f"{item}]"
     else:
-        json_string += f"{item}{separators[0]} "
+        json_string += f"{item}{separators[0]}"
     
     return json_string
 
