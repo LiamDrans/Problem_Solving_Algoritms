@@ -2,8 +2,6 @@
 
 This repository is a collection of solutions to various problems in Python.
 
-# Description
-
 # json_dumps
 
 A custom implementation of the json.dumps() function. This function recursively traverses the structure of the input data to serialize the object into a JSON-formatted string, handling all the different data types; 
