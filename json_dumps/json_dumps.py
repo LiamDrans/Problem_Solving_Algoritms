@@ -73,6 +73,8 @@ def json_dumps(obj, separators=(', ',': ')):
     # else:
     #     return json_string
 
+    return json_string
+
 
 def key_to_json(key):
     """Converts the key of the json into what is expected in the json format - i.e. bool True -> true"""

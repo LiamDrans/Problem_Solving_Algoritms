@@ -89,8 +89,6 @@ def test_json_dumps_on_list_returns_correct_result():
     test3 = [1, [2, True], 3 , [4 , False, ["inner_list"]], "five"]
     test4 = [1, 2, {3:4, 5:6, True:False}]
     test5 = [{True: [True, "Rekieta", {False: "False"}, 1], 2:"Two"}, {"final_dict":"wow"}]
-    print(json_dumps(test5, indent=1))
-    print(json.dumps(test5, indent=1))
     test_list = [test, test2, test3, test4, test5]
     for test in test_list:
         assert json_dumps(test) == json.dumps(test)
