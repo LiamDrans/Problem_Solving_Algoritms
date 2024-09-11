@@ -8,7 +8,9 @@ Python
 
 # Description
 
-json_dumps: A custom implementation of the json.dumps() function. This function recursively traverses the structure of the input data to serialize the object into a JSON-formatted string, handling all the different data types; 
+# json_dumps
+
+A custom implementation of the json.dumps() function. This function recursively traverses the structure of the input data to serialize the object into a JSON-formatted string, handling all the different data types; 
 
 Dictionaries - interate through key-value pairs and recursively call json_dumps on the value;
 Lists and Tuples -  iterate through elements and recursively call json_dumps on each element; and
