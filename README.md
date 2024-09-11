@@ -21,8 +21,7 @@ The "seperators" functionality has also been implemented into json_dumps i.e. js
 # boggle
 
  <div align="justify">
-A function designed to test whether a string is a valid solution in the Boggle word game (the objective of Boggle is to find valid words on a board of lettered dice by connecting adjacent letters without repeating positions, but in our case any valid string will satisfy). 
-
+A function designed to test whether a string is a valid solution in the Boggle word game (the objective of Boggle is to find valid words on a board of lettered dice by connecting adjacent letters without repeating positions, but in our case any valid string will satisfy). <br />
 
 When given a list of lists and a string, this function will check that this list forms a valid board (i.e. only contains alphabetic characters) and that every character in the string can be found on the board list. The function then converts the board to a series of tuple index positions [[(0,0), (0,1)], [(1,0),(1,1)]] which is assigned to each character in a dictionary. 
 
