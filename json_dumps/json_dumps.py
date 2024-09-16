@@ -1,7 +1,7 @@
 """Program to perform the function of json.dumps on dictionary objs featuring recursive logic"""
 
 
-def json_dumps(obj, separators=(', ',': ')):
+def json_dumps(obj, separators=(", ", ": ")):
     """Takes the dictionary to be converted to json format"""
 
     json_string = ""
@@ -24,20 +24,32 @@ def json_dumps(obj, separators=(', ',': ')):
                     dict_counter,
                     len(dictionary),
                     json_string,
-                    separators
+                    separators,
                 )
 
             elif isinstance(dictionary[key], (list, tuple)):
                 json_key = key_to_json(key)
-                json_string = json_dict(json_key, json_dumps(dictionary[key]), dict_counter, len(dictionary), json_string, separators)
+                json_string = json_dict(
+                    json_key,
+                    json_dumps(dictionary[key]),
+                    dict_counter,
+                    len(dictionary),
+                    json_string,
+                    separators,
+                )
 
             else:
                 json_key = key_to_json(key)
                 json_value = value_to_json(dictionary[key])
 
                 json_string = json_dict(
-                    json_key, json_value, dict_counter, len(dictionary), json_string, 
-                separators)
+                    json_key,
+                    json_value,
+                    dict_counter,
+                    len(dictionary),
+                    json_string,
+                    separators,
+                )
 
     elif isinstance(obj, (list, tuple)):
 
@@ -47,12 +59,16 @@ def json_dumps(obj, separators=(', ',': ')):
             list_counter += 1
 
             if isinstance(item, (list, tuple, dict)):
-                json_string = json_list(json_dumps(item), list_counter, len(obj), json_string, separators)
+                json_string = json_list(
+                    json_dumps(item), list_counter, len(obj), json_string, separators
+                )
 
             else:
                 json_item = value_to_json(item)
-                json_string = json_list(str(json_item), list_counter, len(obj), json_string, separators)
-    
+                json_string = json_list(
+                    str(json_item), list_counter, len(obj), json_string, separators
+                )
+
     else:
         json_obj = value_to_json(obj)
         json_string += str(json_obj)
@@ -81,6 +97,7 @@ def key_to_json(key):
 
     return [str(key).lower() if isinstance(key, bool) else key][0]
 
+
 def value_to_json(value):
     """Converts the key of the json into what is expected in the json format - i.e. ..."""
 
@@ -107,6 +124,7 @@ def json_dict(key, value, counter, length, json_string, separators):
 
     return json_string
 
+
 def json_list(item, counter, length, json_string, separators):
     """Contains the string logic for converting a base list into json format"""
 
@@ -118,6 +136,5 @@ def json_list(item, counter, length, json_string, separators):
         json_string += f"{item}]"
     else:
         json_string += f"{item}{separators[0]}"
-    
-    return json_string
 
+    return json_string
