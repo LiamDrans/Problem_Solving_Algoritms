@@ -4,11 +4,21 @@ class LinkedList:
         self.tail = None
         self.length = 0
         self.name = name
+        self.psn = 0
 
+    def __iter__(self):
+        return LinkedListIterator(self.head)
+
+    def __next__(self):
+        eval_str = f"self.head{'.next'*self.psn}"
+        self.psn += 1
+        return next(LinkedListIterator(eval(eval_str))) #to be refactored
+  
     def __len__(self):
         return self.length
 
-    def add(self, data):
+    
+    def append(self, data):
 
         if self.length == 0:
             self.head = Node(data)
@@ -62,14 +72,6 @@ class LinkedList:
             print(f"Node '{[data.data if isinstance(data, Node) else data][0]}' not found in {self.name}")
             return (False, None)
 
-    def listing(self):
-        return_list = []
-        curr_node = self.head
-        while curr_node:
-            return_list.append(curr_node.data)
-            curr_node = curr_node.next
-        return return_list
-
     def reverse(self):
         prev_node = None
         curr_node = self.head
@@ -83,6 +85,21 @@ class LinkedList:
         self.head = prev_node
         self.tail = old_head
         self.tail.next = None
+
+class LinkedListIterator:
+    def __init__(self, head):
+        self.curr_node = head
+
+    def __iter__(self):
+        return self
+    
+    def __next__(self):
+        if not self.curr_node:
+            raise StopIteration
+        else:
+            value = self.curr_node
+            self.curr_node = self.curr_node.next
+            return value.data
 
 class Node:
     def __init__(self, data=None):
