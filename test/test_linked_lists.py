@@ -104,3 +104,16 @@ def test_delete_node_by_string_method_of_linked_list():
     linked_list.delete("Wz.")
     assert linked_list.listing() == ['Obj.', 'Jpz.']
     assert len(linked_list) == 2
+
+def test_reverse_nodes_of_linked_list():
+    linked_list = LinkedList()
+    linked_list.add("Obj.")
+    first_node = linked_list.head
+    linked_list.add("Rhm.")
+    second_node = first_node.next
+    linked_list.add("Jpz.")
+    third_node = second_node.next
+    linked_list.add("Wz.")
+    fourth_node = third_node.next
+    linked_list.reverse()
+    assert linked_list.listing() == ['Wz.', 'Jpz.', 'Rhm.', 'Obj.']

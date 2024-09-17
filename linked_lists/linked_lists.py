@@ -23,11 +23,12 @@ class LinkedList:
         self.length += 1
 
     def delete(self, data):
+
         if isinstance(data, Node) and data == self.head or data == self.head.data:
-                self.head = self.head.next
-                self.length -= 1
-                print(f"Head node '{[data.data if isinstance(data, Node) else data][0]}' deleted")
-                return True
+            self.head = self.head.next
+            self.length -= 1
+            print(f"Head node '{[data.data if isinstance(data, Node) else data][0]}' deleted")
+            return True
         if self.head.next:
             curr_node = self.head.next
             prev_node = self.head
@@ -53,7 +54,20 @@ class LinkedList:
             curr_node = curr_node.next
         return return_list
 
+    def reverse(self):
+        prev_node = None
+        curr_node = self.head
+        old_head = self.head
 
+        while curr_node:
+            next_node = curr_node.next
+            curr_node.next = prev_node
+            prev_node = curr_node
+            curr_node = next_node
+        self.head = prev_node
+        self.tail = old_head
+        self.tail.next = None
+        
 class Node:
     def __init__(self, data=None):
         self.data = data
