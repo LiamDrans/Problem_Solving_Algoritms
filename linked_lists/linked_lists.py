@@ -1,8 +1,9 @@
 class LinkedList:
-    def __init__(self):
+    def __init__(self, name="Linked List"):
         self.head = None
         self.tail = None
         self.length = 0
+        self.name = name
 
     def __len__(self):
         return self.length
@@ -46,6 +47,21 @@ class LinkedList:
                 prev_node = curr_node
                 curr_node = curr_node.next
 
+    def find(self, data, curr_node = None, position=0):
+        if not curr_node:
+            curr_node = self.head
+        if isinstance(data, Node) and data == curr_node or data == curr_node.data:
+            print(f"Node '{[data.data if isinstance(data, Node) else data][0]}' found at position {position} of {self.name}")
+            return (True, position)
+        elif curr_node.next:
+            return self.find(data, curr_node.next, position+1)
+        else:
+            if isinstance(data, Node) and data == curr_node or data == curr_node.data:
+                print(f"Node '{[data.data if isinstance(data, Node) else data][0]}' found at position {position} of {self.name}")
+                return (True, position)
+            print(f"Node '{[data.data if isinstance(data, Node) else data][0]}' not found in {self.name}")
+            return (False, None)
+
     def listing(self):
         return_list = []
         curr_node = self.head
@@ -67,7 +83,7 @@ class LinkedList:
         self.head = prev_node
         self.tail = old_head
         self.tail.next = None
-        
+
 class Node:
     def __init__(self, data=None):
         self.data = data
