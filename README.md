@@ -24,7 +24,13 @@ When given a list of lists and a string, this function will check that this list
 Using the string, the function then uses a recursive cartesian product operation to discover all possible paths through the board to get the string, each path represented by a list of tuples. Finally, each path is looped over to check that duplicate index positions are not used and that each movement is between +1 to -1 in both the x and y direction. Once a valid path is found, True is returned as the string is a valid solution to the board, else False for invalid. 
 </div>
 
-# linked_lists (WIP)
+# linked lists (WIP)
 
  <div align="justify">
  Implementation of linked list in python to demonstrate object oriented programming. 
+
+ # binary trees (WIP)
+ 
+ <div align="justify">
+ Creation of a complete binary tree.
+ 
