@@ -1,5 +1,5 @@
 import pytest
-from src.binary_tree import BinaryTree, Node
+from binary_tree.binary_tree import BinaryTree, Node
 
 @pytest.fixture
 def binary_tree():
