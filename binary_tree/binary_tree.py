@@ -39,7 +39,7 @@ class BinaryTree:
             return
 
         node = self.root
-
+        
         for bit in bin(self.len)[3:-1]:
             node = [node.left, node.right][int(bit)]
         if self.len & 1:
