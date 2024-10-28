@@ -32,5 +32,5 @@ Using the string, the function then uses a recursive cartesian product operation
  # binary trees (WIP)
  
  <div align="justify">
- Creation of a complete binary tree.
+ Creation of a binary tree which is always complete. 
  
