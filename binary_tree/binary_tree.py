@@ -1,3 +1,5 @@
+"""BinaryTree main file"""
+
 class BinaryTree:
     def __init__(self, data=None, name="BinaryTree"):
         self.root = None
@@ -106,7 +108,7 @@ class BinaryTree:
             print(f"{data} successfully deleted from the end of {self.name}.")
         else:
             print(f"{data} successfully deleted, {replacing_node.data} replaced at {self.name} position {del_position}.")
-        
+
 
 class Node:
     def __init__(self, data):
