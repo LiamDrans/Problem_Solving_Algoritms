@@ -90,7 +90,7 @@ def cartesian_product(ar_list):
 
 
 def path_checker(arg_set):
-    """Checks each path through the board to determine if they are all valid moves, i.e. only 1 away in each direction"""
+    """Checks each path through the board to determine if they are all valid moves, i.e. only 1 away in each direction."""
 
     if len(set(arg_set)) < len(arg_set):
         print(arg_set, False, "dups")
