@@ -25,22 +25,17 @@ def boggle(board, word):
                 else:
                     char_indices[x] = [(index[1], index[2])]
 
-    print(char_indices)
-
     list_indices = []
 
     for x in word_lst:
         if x not in char_indices:
             print(f"False, '{x}' not in board")
+            print("Invalid board")
             return False
         else:
             list_indices.append(char_indices[x])
 
-    print(list_indices)
-
     all_paths_list = list(cartesian_product(list_indices))
-
-    print(len(all_paths_list))
 
     for path in all_paths_list:
         if path_checker(path):
@@ -59,11 +54,6 @@ def board_checker(board):
             if char.isalpha() is False:
                 valid = False
                 break
-
-    if valid:
-        print("Valid board")
-    else:
-        print("Invalid board")
 
     return valid
 
