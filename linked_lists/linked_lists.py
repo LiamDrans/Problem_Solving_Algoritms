@@ -35,6 +35,8 @@ class LinkedList:
 
     def delete(self, data):
 
+        """designed to remove a node from the linked list, based on either the node itself (Node object) or the data contained within the node"""
+
         if isinstance(data, Node) and data == self.head or data == self.head.data:
             self.head = self.head.next
             self.length -= 1
